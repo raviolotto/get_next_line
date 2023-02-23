@@ -1,0 +1,5 @@
+12345678
+zuesta la seconda
+bananabanana
+quante righe debbo scrivere
+con buffer 3
