@@ -6,7 +6,7 @@
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:44:13 by jacopo            #+#    #+#             */
-/*   Updated: 2023/02/23 17:29:15 by jacopo           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:09:28 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,33 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	str[j] = '\0';
 	return (str);
 }
+
+/*char	*ft_strjoin(char *raw_string, char *second)
+{
+	char		*str;
+	long long	i;
+	long long	j;
+
+	if (!raw_string)
+	{
+		raw_string = (char *)malloc(1);
+		raw_string[0] = 0;
+	}
+	if (!raw_string || !second)
+		return (NULL);
+	i = -1;
+	j = 0;
+	str = malloc((ft_strlen(raw_string)+ft_strlen(second)+1) * sizeof(char));
+	if (!str)
+		return (NULL);
+	while (raw_string[++i])
+		str[i] = raw_string[i];
+	while (second[j])
+		str[i++] = second[j++];
+	str[i] = '\0';
+	free(raw_string);
+	return (str);
+}*/
 
 char	*ft_strchr(const char *s, int c)
 {
