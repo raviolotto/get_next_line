@@ -1,2 +1,7 @@
 Makefile
 test.txt
+test
+41_no_nl
+41_with_nl
+main.c
+main.txt

@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 18:30:53 by jacopo            #+#    #+#             */
-/*   Updated: 2023/03/03 18:35:28 by jacopo           ###   ########.fr       */
+/*   Created: 2023/03/03 16:06:15 by jacopo            #+#    #+#             */
+/*   Updated: 2023/03/03 17:57:22 by jacopo           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*ft_get_info(int fd, char *raw, char *buf)
 {
@@ -22,7 +22,10 @@ char	*ft_get_info(int fd, char *raw, char *buf)
 	{
 		byte = read(fd, buf, BUFFER_SIZE);
 		if (byte == -1)
+		{
+			free (buf);
 			return (NULL);
+		}
 		buf[byte] = '\0';
 		if (!raw)
 			raw = ft_strdup("");
@@ -32,6 +35,7 @@ char	*ft_get_info(int fd, char *raw, char *buf)
 		if (ft_strchr(buf, '\n'))
 			break ;
 	}
+	free(buf);
 	return (raw);
 }
 
@@ -45,6 +49,8 @@ char	*ft_clean(const char *raw, size_t *i)
 	j = 0;
 	if (!raw[pos])
 		return (NULL);
+	//if (!ft_strchr(raw, '\n'))
+		//return (ft_strdup(raw));
 	while (raw[pos] && raw[pos] != '\n')
 		pos++;
 	str = ft_substr(raw, j, ++pos);
@@ -80,7 +86,6 @@ char	*get_next_line(int fd)
 	if (!buf)
 		return (NULL);
 	raw[fd] = ft_get_info(fd, raw[fd], buf);
-	free(buf);
 	if (!raw[fd])
 		return (NULL);
 	i = 0;
