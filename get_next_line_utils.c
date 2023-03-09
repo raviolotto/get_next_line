@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jacopo <jacopo@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 12:44:13 by jacopo            #+#    #+#             */
-/*   Updated: 2023/03/01 15:46:05 by jacopo           ###   ########.fr       */
+/*   Updated: 2023/03/09 12:52:30 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,14 @@ size_t	ft_strlen(const char *s)
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	unsigned int	i;
-	char			*subs;
+	size_t	i;
+	char	*subs;
 
+	if (!s)
+		return (NULL);
 	if (len > ft_strlen(s))
 		len = ft_strlen(s);
-	if (start > ft_strlen(s))
-		return (ft_strdup(""));
-	if (len == ft_strlen(s))
-		subs = malloc(sizeof(*s) * (len - start + 1));
-	else
-		subs = malloc(sizeof(*s) * len + 1);
+	subs = malloc(sizeof(*s) * len + 1);
 	if (!subs)
 		return (NULL);
 	i = 0;
