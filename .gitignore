@@ -7,3 +7,4 @@ main.c
 main.txt
 gnlTester
 .vscode
+.DS_Store

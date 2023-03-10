@@ -6,7 +6,7 @@
 /*   By: jcardina <jcardina@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 16:06:15 by jacopo            #+#    #+#             */
-/*   Updated: 2023/03/09 14:52:27 by jcardina         ###   ########.fr       */
+/*   Updated: 2023/03/10 11:29:31 by jcardina         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,9 +83,9 @@ char	*get_next_line(int fd)
 	size_t		i;
 	char		*buf;
 
-	if (fd < 0)
-		return(NULL);
-	if (fd < 0 && BUFFER_SIZE <= 0)
+	//if (fd < 0)
+	//	return(NULL);
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buf = (char *)malloc(BUFFER_SIZE + 1);
 	if (!buf)
